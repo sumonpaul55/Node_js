@@ -1,0 +1,1 @@
+I am replaced appendFileSync is not replaced old data
