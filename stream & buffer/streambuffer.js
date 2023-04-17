@@ -20,7 +20,17 @@ const server = http.createServer((req, res)=>{
 </html>`);
     res.end();
   }else if (req.url === "/process"){
+
     // console.log(req.data)
+    let bodydatata = [];
+    req.on("data", (chunk) => { //here data is not really data it's chunk of data
+      bodydatata.push(chunk);
+    })
+    req.on("end", ()=>{
+      console.log("streaming finished");
+      const parsedata = Buffer.concat(bodydatata).toString();
+      console.log(parsedata)
+    })
     res.write("Form sent successfully");
     res.end();
   }  else if(req.url === "/about"){
