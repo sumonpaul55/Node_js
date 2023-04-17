@@ -2,7 +2,7 @@
 
 // const ourReadStream = fs.createReadStream(`${__dirname}/bigdata.txt` , 'utf-8');
 
-// ourReadStream.on("data", (data) => {
+// ourReadStream.on("data", (data) => { 
 //   console.log(data);
 // });
 
@@ -30,9 +30,10 @@ const server = http.createServer((req, res)=>{
       console.log("streaming finished");
       const parsedata = Buffer.concat(bodydatata).toString();
       console.log(parsedata)
+      
+      res.end();
     })
-    res.write("Form sent successfully");
-    res.end();
+   
   }  else if(req.url === "/about"){
     res.write("About us");
     res.end();
@@ -53,3 +54,4 @@ server.listen(3000) // server is event emitter
 
 //even loop stay always running
 console.log('Server listening on port 3000')// server in running 
+
