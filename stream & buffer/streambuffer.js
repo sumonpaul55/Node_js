@@ -11,14 +11,16 @@ const http = require('http');
 const server = http.createServer((req, res)=>{
     //it takes 2 paramiter
   if(req.url === "/"){
-    res.write(`<html><head><title>form</title></head></html>`);
+    res.write(`<html><head><title>form</title></head>`);
     res.write(`<body>
-    <form method="post" action"/process">
-    <input name="message"/>
+    <form method="post" action="/process">
+    <input type="text" name="message"/>
     </form>
-</body>`);
+</body>
+</html>`);
     res.end();
   }else if (req.url === "/process"){
+    // console.log(req.data)
     res.write("Form sent successfully");
     res.end();
   }  else if(req.url === "/about"){
