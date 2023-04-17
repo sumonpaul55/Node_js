@@ -1,9 +1,7 @@
-const fs = require('fs');
+const fs = require("fs");
 
-const ourReadstream = fs.createReadStream(`${__dirname}/bigdata.txt`, 'utf8');
+const ourReadStream = fs.createReadStream(`${__dirname}/bigdata.txt`);
 
-ourReadstream.on('data', (data)=>{
-    console.log(data);
-})
-
-console.log(ourReadstream);
+ourReadStream.on("data", (chunk) => {
+  console.log(chunk);
+});
