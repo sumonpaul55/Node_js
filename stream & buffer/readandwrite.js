@@ -17,7 +17,7 @@ const ourreadStream = fs.createReadStream(`${__dirname}/bigdata.txt`)
 // ******************* another example ****************
 
 
-const server = http.createServer((req, res)=>{ // here res is a writeable stream
+const server = http.createServer((req, res)=>{ // here req is readable and res is a writeable stream
     if(req.url === "/"){
         res.write(`<html><head><title>form</title></head>`);
         res.write(`<body>
